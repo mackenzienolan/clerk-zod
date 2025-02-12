@@ -1,7 +1,7 @@
 {
   "name": "@macknolandev/clerk-zod",
   "description": "Zod Schema for Clerk JSON",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "type": "module",
   "repository": {
