@@ -39,6 +39,7 @@
     "dev": "tsup src/index.ts --format cjs,esm --watch --dts",
     "lint": "eslint src/",
     "typecheck": "tsc --noEmit",
+    "prerelease": "pnpm build",
     "release": "np --no-tests"
   },
   "packageManager": "pnpm@9.12.2",
@@ -48,7 +49,8 @@
   "devDependencies": {
     "del-cli": "^6.0.0",
     "np": "^10.2.0",
-    "tsup": "^8.3.6"
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
   },
   "dependencies": {
     "zod": "^3.24.1"
