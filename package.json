@@ -1,0 +1,56 @@
+{
+  "name": "@macknolandev/clerk-zod",
+  "description": "Zod Schema for Clerk JSON",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mackenzienolan/clerk-zod.git"
+  },
+  "keywords": [
+    "Clerk",
+    "Clerk JSON",
+    "Clerk Zod",
+    "Clerk Zod Schema",
+    "Clerk Zod Schema for JSON"
+  ],
+  "exports": {
+    "types": "./distribution/index.d.ts",
+    "default": "./distribution/index.js"
+  },
+  "files": [
+    "distribution"
+  ],
+  "main": "./distribution/index.js",
+  "types": "./distribution/index.d.ts",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "author": {
+    "name": "Mackenzie Nolan",
+    "email": "mack@macknolan.com",
+    "url": "https://macknolan.dev"
+  },
+  "scripts": {
+    "build": "del-cli distribution && tsc --project tsconfig.dist.json",
+    "clean": "rm -rf dist",
+    "dev": "tsup src/index.ts --format cjs,esm --watch --dts",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "release": "np"
+  },
+  "packageManager": "pnpm@9.12.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "del-cli": "^6.0.0",
+    "np": "^10.2.0",
+    "tsup": "^8.3.6"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  }
+}
