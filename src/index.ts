@@ -3,14 +3,15 @@ import { z } from "zod";
 export const CreateClerkWebhookSchema = (data: z.AnyZodObject) =>
   z.object({
     data,
-    event_attributes: z.object({
-      http_request: z.object({
-        client_ip: z.string(),
-        user_agent: z.string(),
-      }),
-    }),
+    // Clerk Webhook Event Doesn't include event_attributes and timestamp
+    // event_attributes: z.object({
+    //   http_request: z.object({
+    //     client_ip: z.string(),
+    //     user_agent: z.string(),
+    //   }),
+    // }),
+    // timestamp: z.number(),
     object: z.literal("event"),
-    timestamp: z.number(),
     type: z.string(),
   });
 
