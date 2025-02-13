@@ -36,6 +36,13 @@ export const SessionJSONSchema = ResourceJSONSchema.extend({
   user_id: z.string(),
 });
 
+export const DeletedObjectJSONSchema = z.object({
+  object: z.string(),
+  id: z.string().optional(),
+  slug: z.string().optional(),
+  deleted: z.boolean(),
+});
+
 export const OrganizationJSONSchema = ResourceJSONSchema.extend({
   object: z.literal("organization"),
   name: z.string(),
@@ -195,7 +202,7 @@ export const UserJSONSchema = ResourceJSONSchema.extend({
   two_factor_enabled: z.boolean().nullish(),
   unsafe_metadata: z.unknown(),
   updated_at: z.number(),
-  username: z.string().nullish(),
+  username: z.string().nullable(),
   verification_attempts_remaining: z.number().nullish(),
   web3_wallets: z.array(z.unknown()).nullish(),
 });
