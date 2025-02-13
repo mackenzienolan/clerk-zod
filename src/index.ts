@@ -28,24 +28,24 @@ export const ClerkOrganizationJSONSchema = ClerkResourceJSONSchema.extend({
   object: z.literal("organization"),
   name: z.string(),
   slug: z.string(),
-  image_url: z.string().optional(),
-  has_image: z.boolean(),
-  members_count: z.number().optional(),
-  pending_invitations_count: z.number().optional(),
+  image_url: z.string().nullish(),
+  has_image: z.boolean().nullish(),
+  members_count: z.number().nullish(),
+  pending_invitations_count: z.number().nullish(),
   max_allowed_memberships: z.number(),
   admin_delete_enabled: z.boolean(),
   public_metadata: z.unknown().nullish(),
-  private_metadata: z.unknown().optional(),
-  created_by: z.string().optional(),
+  private_metadata: z.unknown().nullish(),
+  created_by: z.string().nullish(),
   created_at: z.number(),
   updated_at: z.number(),
 });
 
 const ClerkOrganizationMembershipPublicUserDataJSONSchema = z.object({
   identifier: z.string(),
-  first_name: z.string().nullable(),
-  last_name: z.string().nullable(),
-  image_url: z.string(),
+  first_name: z.string().nullish(),
+  last_name: z.string().nullish(),
+  image_url: z.string().nullish(),
   user_id: z.string(),
 });
 
@@ -73,10 +73,10 @@ export const ClerkRoleJSONSchema = ClerkResourceJSONSchema.extend({
 export const ClerkOrganizationMembershipJSONSchema =
   ClerkResourceJSONSchema.extend({
     object: z.literal("organization_membership"),
-    public_metadata: z.unknown(),
-    private_metadata: z.unknown().optional(),
+    public_metadata: z.unknown().nullish(),
+    private_metadata: z.unknown().nullish(),
     role: z.string(),
-    permissions: z.array(z.string()),
+    permissions: z.array(z.string()).nullish(),
     created_at: z.number(),
     updated_at: z.number(),
     organization: ClerkOrganizationJSONSchema,
@@ -131,10 +131,10 @@ const ClerkEmailAddressJSONSchema = ClerkResourceJSONSchema.extend({
 const ClerkUserOrganizationMembershipJSONSchema =
   ClerkResourceJSONSchema.extend({
     object: z.literal("organization_membership"),
-    public_metadata: z.unknown(),
-    private_metadata: z.unknown().optional(),
+    public_metadata: z.unknown().nullish(),
+    private_metadata: z.unknown().nullish(),
     role: z.string(),
-    permissions: z.array(z.string()),
+    permissions: z.array(z.string()).nullish(),
     created_at: z.number(),
     updated_at: z.number(),
     organization: ClerkOrganizationJSONSchema,
