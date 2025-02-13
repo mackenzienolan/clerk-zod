@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const createWebhookSchema = (data: z.AnyZodObject) =>
+export const createWebhookSchema = <T>(data: z.ZodType<T>) =>
   z.object({
     data,
     //  Webhook Event Doesn't include event_attributes and timestamp
