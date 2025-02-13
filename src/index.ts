@@ -159,7 +159,7 @@ export const ClerkUserJSONSchema = ClerkResourceJSONSchema.extend({
   last_name: z.string().nullable(),
   last_sign_in_at: z.number().nullish(),
   legal_accepted_at: z.number().nullish(),
-  locked: z.boolean(),
+  locked: z.boolean().nullish(),
   lockout_expires_in_seconds: z.number().nullish(),
   object: z.literal("user"),
   organization_memberships: z
