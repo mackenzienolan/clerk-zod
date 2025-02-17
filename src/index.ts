@@ -17,7 +17,7 @@ export const createWebhookSchema = <T>(data: z.ZodType<T>) =>
 
 const ResourceJSONSchema = z.object({
   id: z.string(),
-  object: z.string(),
+  object: z.string().nullish(),
 });
 
 const IdentificationLinkJSONSchema = ResourceJSONSchema.extend({
@@ -134,7 +134,7 @@ const VerificationJSONSchema = z.object({
 });
 
 export const ExternalAccountJSONSchema = ResourceJSONSchema.extend({
-  object: z.literal("external_account"),
+  object: z.literal("external_account").nullish(),
   provider: z.string(),
   identification_id: z.string(),
   provider_user_id: z.string(),
@@ -162,7 +162,7 @@ const PhoneNumberJSONSchema = ResourceJSONSchema.extend({
 
 const EmailAddressJSONSchema = ResourceJSONSchema.extend({
   email_address: z.string().email(),
-  object: z.literal("email_address"),
+  object: z.literal("email_address").nullish(),
   verification: VerificationJSONSchema.nullable(),
   linked_to: z.array(IdentificationLinkJSONSchema),
 });
