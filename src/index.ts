@@ -134,7 +134,7 @@ const VerificationJSONSchema = z.object({
 });
 
 export const ExternalAccountJSONSchema = ResourceJSONSchema.extend({
-  object: z.literal("external_account").nullish(),
+  object: z.string().nullish(),
   provider: z.string(),
   identification_id: z.string(),
   provider_user_id: z.string(),
